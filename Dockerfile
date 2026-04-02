@@ -22,5 +22,5 @@ RUN printf '%s\n' \
     && update-ca-certificates \
     && rm -f /etc/apt/apt.conf.d/99-bootstrap-noverify \
     && apt-get update \
-    && apt-get install -y python3 python3-pip python3-venv kali-linux-large \
+    && apt-get install -y --no-install-recommends python3 python3-pip python3-venv kali-linux-large \
     && rm -rf /var/lib/apt/lists/*
