@@ -24,3 +24,7 @@ RUN printf '%s\n' \
     && apt-get update \
     && apt-get install -y --no-install-recommends python3 python3-pip python3-venv kali-linux-large \
     && rm -rf /var/lib/apt/lists/*
+
+RUN setcap cap_net_raw,cap_net_bind_service+eip /usr/lib/nmap/nmap
+
+RUN curl -fsSL https://claude.ai/install.sh | bash
