@@ -50,3 +50,4 @@ RUN mv proxy /usr/local/bin/ligolo-proxy
 
 RUN apt install --reinstall seclists
 
+RUN apt install -y dirsearch
