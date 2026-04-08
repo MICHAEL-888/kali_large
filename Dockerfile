@@ -28,3 +28,25 @@ RUN printf '%s\n' \
 RUN setcap cap_net_raw,cap_net_bind_service+eip /usr/lib/nmap/nmap
 
 RUN curl -fsSL https://claude.ai/install.sh | bash
+RUN ln -s ~/.local/bin/claude /usr/local/bin/claude
+
+RUN apt update
+RUN apt install -y nuclei
+RUN nuclei -ut
+
+RUN wget https://github.com/shadow1ng/fscan/releases/download/1.8.4/fscan -O fscan
+RUN chmod +x fscan
+RUN mv fscan /usr/local/bin/
+
+RUN wget https://github.com/nicocha30/ligolo-ng/releases/download/v0.8.3/ligolo-ng_agent_0.8.3_linux_amd64.tar.gz
+RUN tar -xvf ligolo-ng_agent_0.8.3_linux_amd64.tar.gz
+RUN chmod +x agent
+RUN mv agent /usr/local/bin/ligolo-agent
+
+RUN wget https://github.com/nicocha30/ligolo-ng/releases/download/v0.8.3/ligolo-ng_proxy_0.8.3_linux_amd64.tar.gz
+RUN tar -xvf ligolo-ng_proxy_0.8.3_linux_amd64.tar.gz
+RUN chmod +x proxy
+RUN mv proxy /usr/local/bin/ligolo-proxy
+
+RUN apt install --reinstall seclists
+
