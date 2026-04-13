@@ -59,8 +59,6 @@ RUN go install -v github.com/projectdiscovery/interactsh/cmd/interactsh-client@l
 
 RUN apt install xsstrike -y
 
-RUN apt install tplmap -y
-
 RUN apt install python3-pydash -y
 
 RUN git clone https://github.com/tarunkant/Gopherus.git /opt/gopherus \
