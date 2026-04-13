@@ -51,3 +51,20 @@ RUN mv proxy /usr/local/bin/ligolo-proxy
 RUN apt install --reinstall seclists
 
 RUN apt install -y dirsearch
+
+RUN apt install arjun -y
+
+RUN go install -v github.com/projectdiscovery/interactsh/cmd/interactsh-client@latest \
+    && cp /root/go/bin/interactsh-client /usr/local/bin/
+
+RUN apt install xsstrike -y
+
+RUN apt install tplmap -y
+
+RUN apt install python3-pydash -y
+
+RUN git clone https://github.com/tarunkant/Gopherus.git /opt/gopherus \
+    && chmod +x /opt/gopherus/gopherus.py \
+    && ln -s /opt/gopherus/gopherus.py /usr/local/bin/gopherus
+
+CMD ["/bin/bash"]
